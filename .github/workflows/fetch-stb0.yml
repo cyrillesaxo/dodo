@@ -1,7 +1,7 @@
 name: Fetch STB-0 artifacts
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths:
       - '.github/workflows/fetch-stb0.yml'
 permissions:
