@@ -1,0 +1,52 @@
+name: STB-0 successful translation pilot
+
+on:
+  push:
+    branches:
+      - research/stb0-run
+    paths:
+      - ".github/workflows/stb0-run.yml"
+      - "research/stb0/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/stb0-run
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install scientific dependencies
+        run: python -m pip install --disable-pip-version-check pandas numpy scipy scikit-learn matplotlib pytest
+      - name: Run STB-0 experiment and tests
+        run: |
+          python research/stb0/stb0_experiment.py
+          pytest -q research/stb0/test_stb0_results.py | tee research/stb0/results/pytest_output.txt
+      - name: Commit executed results
+        run: |
+          git config user.name "stb0-research-bot"
+          git config user.email "stb0-research-bot@users.noreply.github.com"
+          git add research/stb0/results research/stb0/figures research/stb0/data/SHA256SUMS
+          if git diff --cached --quiet; then
+            echo "No result changes"
+          else
+            git commit -m "Record executed STB-0 successful translation results [skip ci]"
+            git push origin HEAD:research/stb0-run
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stb0-successful-translation-results
+          path: |
+            research/stb0/results
+            research/stb0/figures
+            research/stb0/stb0_experiment.py
+            research/stb0/test_stb0_results.py
+            research/stb0/README.md
+          retention-days: 30
+          if-no-files-found: error
