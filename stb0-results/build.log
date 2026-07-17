@@ -1,41 +1,0 @@
-+ python3 -m pip install --quiet pandas numpy scipy scikit-learn matplotlib tabulate
-
-[1m[[0m[34;49mnotice[0m[1;39;49m][0m[39;49m A new release of pip is available: [0m[31;49m26.0.1[0m[39;49m -> [0m[32;49m26.1.2[0m
-[1m[[0m[34;49mnotice[0m[1;39;49m][0m[39;49m To update, run: [0m[32;49mpip install --upgrade pip[0m
-+ curl -L --fail --retry 4 --retry-delay 3 -o /opt/build/repo/.stb0-data/mqm_newstest2020_ende.tsv https://raw.githubusercontent.com/google/wmt-mqm-human-evaluation/main/newstest2020/ende/mqm_newstest2020_ende.tsv
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 41.1M  100 41.1M    0     0   226M      0 --:--:-- --:--:-- --:--:--  227M
-+ curl -L --fail --retry 4 --retry-delay 3 -o /opt/build/repo/.stb0-data/mqm_newstest2020_zhen.tsv https://raw.githubusercontent.com/google/wmt-mqm-human-evaluation/main/newstest2020/zhen/mqm_newstest2020_zhen.tsv
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 61.5M  100 61.5M    0     0  80.9M      0 --:--:-- --:--:-- --:--:-- 80.9M
-+ python3 /opt/build/repo/experiments/stb0/run_stb0.py --input en-de=/opt/build/repo/.stb0-data/mqm_newstest2020_ende.tsv --input zh-en=/opt/build/repo/.stb0-data/mqm_newstest2020_zhen.tsv --out /opt/build/repo/dist/stb0 --bootstrap 500
-{
-  "n_ratings": 110647,
-  "n_cross_rater": 110640,
-  "n_units": 34171,
-  "semantic_boundary_spearman": 0.21099947223916082,
-  "semantic_rule_false_success": 0.5265328639730994,
-  "typed_rule_false_success": 0.35623302143072744
-}
-+ python3 /opt/build/repo/experiments/stb0/test_stb0_results.py /opt/build/repo/dist/stb0
-PASS: two language pairs evaluated
-PASS: large cross-rater sample
-PASS: at least 50 documents
-PASS: boundary-only quadrant exists
-PASS: dimensions are not identical
-PASS: typed rule is stricter
-PASS: typed rule does not increase false success
-PASS: all primary AUCs finite
-PASS: automatic boundary computation remains unclaimed
-PASS: full RC remains unclaimed
-PASS: examples artifact exists
-PASS: figures exist
-STB-0 tests passed
-dist/STB0_successful_translation_pilot.zip
-From https://github.com/cyrillesaxo/regimeReader
- * branch            experiment/stb0-results -> FETCH_HEAD
-fatal: 'experiment/stb0-results' is already used by worktree at '/tmp/stb0-results-worktree'
-RESULT_WORKTREE_FAILED
-STB0_STATUS=0
