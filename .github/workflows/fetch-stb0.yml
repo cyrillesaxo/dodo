@@ -29,3 +29,4 @@ jobs:
           git add stb0-results
           git commit -m 'Refresh executed STB-0 artifacts and diagnostics' || exit 0
           git push
+# refresh: c1bc99d33b87c5d7738b98bb7de8fcddd4c57825
