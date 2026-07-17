@@ -1,0 +1,30 @@
+name: Fetch STB-0 artifacts
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/fetch-stb0.yml'
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch executed STB-0 results
+        run: |
+          set -euo pipefail
+          base='https://deploy-preview-18--frabjous-fenglisu-1199db.netlify.app'
+          mkdir -p stb0-results
+          curl -L --fail --retry 5 "$base/stb0/results/summary.json" -o stb0-results/summary.json
+          curl -L --fail --retry 5 "$base/stb0/results/report.md" -o stb0-results/report.md
+          curl -L --fail --retry 5 "$base/stb0/results/model_metrics.csv" -o stb0-results/model_metrics.csv
+          curl -L --fail --retry 5 "$base/stb0/results/semantic_clear_boundary_failures.csv" -o stb0-results/semantic_clear_boundary_failures.csv
+          curl -L --fail --retry 5 "$base/STB0_successful_translation_pilot.zip" -o stb0-results/STB0_successful_translation_pilot.zip
+      - name: Commit fetched artifacts
+        run: |
+          git config user.name 'STB-0 artifact bridge'
+          git config user.email 'stb0@regimereader.local'
+          git add stb0-results
+          git commit -m 'Fetch executed STB-0 artifacts' || exit 0
+          git push
