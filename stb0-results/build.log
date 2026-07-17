@@ -5,30 +5,46 @@
 + curl -L --fail --retry 4 --retry-delay 3 -o /opt/build/repo/.stb0-data/mqm_newstest2020_ende.tsv https://raw.githubusercontent.com/google/wmt-mqm-human-evaluation/main/newstest2020/ende/mqm_newstest2020_ende.tsv
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 41.1M  100 41.1M    0     0   233M      0 --:--:-- --:--:-- --:--:--  233M
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0 41.1M    0 32750    0     0  51818      0  0:13:52 --:--:--  0:13:52 51819100 41.1M  100 41.1M    0     0  56.4M      0 --:--:-- --:--:-- --:--:-- 56.4M
 + curl -L --fail --retry 4 --retry-delay 3 -o /opt/build/repo/.stb0-data/mqm_newstest2020_zhen.tsv https://raw.githubusercontent.com/google/wmt-mqm-human-evaluation/main/newstest2020/zhen/mqm_newstest2020_zhen.tsv
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 61.5M  100 61.5M    0     0   243M      0 --:--:-- --:--:-- --:--:--  244M
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 61.5M  100 61.5M    0     0   260M      0 --:--:-- --:--:-- --:--:--  261M
 + python3 /opt/build/repo/experiments/stb0/run_stb0.py --input en-de=/opt/build/repo/.stb0-data/mqm_newstest2020_ende.tsv --input zh-en=/opt/build/repo/.stb0-data/mqm_newstest2020_zhen.tsv --out /opt/build/repo/dist/stb0 --bootstrap 500
+{
+  "n_ratings": 110647,
+  "n_cross_rater": 110640,
+  "n_units": 34171,
+  "semantic_boundary_spearman": 0.21099947223916082,
+  "semantic_rule_false_success": 0.5265328639730994,
+  "typed_rule_false_success": 0.35623302143072744
+}
++ python3 /opt/build/repo/experiments/stb0/test_stb0_results.py /opt/build/repo/dist/stb0
+PASS: two language pairs evaluated
+PASS: large cross-rater sample
 Traceback (most recent call last):
-  File [35m"/opt/build/repo/experiments/stb0/run_stb0.py"[0m, line [35m418[0m, in [35m<module>[0m
-    if __name__ == "__main__": [31mmain[0m[1;31m()[0m
-                               [31m~~~~[0m[1;31m^^[0m
-  File [35m"/opt/build/repo/experiments/stb0/run_stb0.py"[0m, line [35m413[0m, in [35mmain[0m
-    (results/"summary.json").write_text([31mjson.dumps[0m[1;31m(summary, indent=2, ensure_ascii=False, allow_nan=False)[0m, encoding="utf-8")
-                                        [31m~~~~~~~~~~[0m[1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-  File [35m"/opt/buildhome/.local/share/mise/installs/python/3.14.3/lib/python3.14/json/__init__.py"[0m, line [35m242[0m, in [35mdumps[0m
-    **kw).[31mencode[0m[1;31m(obj)[0m
-          [31m~~~~~~[0m[1;31m^^^^^[0m
-  File [35m"/opt/buildhome/.local/share/mise/installs/python/3.14.3/lib/python3.14/json/encoder.py"[0m, line [35m202[0m, in [35mencode[0m
-    chunks = self.iterencode(o, _one_shot=True)
-  File [35m"/opt/buildhome/.local/share/mise/installs/python/3.14.3/lib/python3.14/json/encoder.py"[0m, line [35m263[0m, in [35miterencode[0m
-    return _iterencode(o, 0)
-  File [35m"/opt/buildhome/.local/share/mise/installs/python/3.14.3/lib/python3.14/json/encoder.py"[0m, line [35m182[0m, in [35mdefault[0m
-    raise TypeError(f'Object of type {o.__class__.__name__} '
-                    f'is not JSON serializable')
-[1;35mTypeError[0m: [35mObject of type bool is not JSON serializable[0m
-when serializing dict item 'typed_model_beats_semantic_auc'
-when serializing dict item 'claims'
+  File [35m"/opt/build/repo/experiments/stb0/test_stb0_results.py"[0m, line [35m20[0m, in [35m<module>[0m
+    [31mok[0m[1;31m("at least 100 documents", D["n_documents"] >= 100)[0m
+    [31m~~[0m[1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  File [35m"/opt/build/repo/experiments/stb0/test_stb0_results.py"[0m, line [35m12[0m, in [35mok[0m
+    raise AssertionError(name)
+[1;35mAssertionError[0m: [35mat least 100 documents[0m
+dist/STB0_successful_translation_pilot.zip
+From https://github.com/cyrillesaxo/regimeReader
+ * branch            experiment/stb0-results -> FETCH_HEAD
+ * [new branch]      experiment/stb0-results -> origin/experiment/stb0-results
+Preparing worktree (new branch 'experiment/stb0-results')
+branch 'experiment/stb0-results' set up to track 'origin/experiment/stb0-results'.
+HEAD is now at ab6b47b Align The Crossing modal with the RegimeReader design system
+[experiment/stb0-results 0e2e8a4] Record executed STB-0 results [skip netlify]
+ 6 files changed, 794 insertions(+)
+ create mode 100644 experiments/stb0/executed/figures/quadrant_success.png
+ create mode 100644 experiments/stb0/executed/figures/strict_success_auc.png
+ create mode 100644 experiments/stb0/executed/results/model_metrics.csv
+ create mode 100644 experiments/stb0/executed/results/report.md
+ create mode 100644 experiments/stb0/executed/results/semantic_clear_boundary_failures.csv
+ create mode 100644 experiments/stb0/executed/results/summary.json
+remote: Write access to repository not granted.
+fatal: unable to access 'https://github.com/cyrillesaxo/regimeReader/': The requested URL returned error: 403
+RESULT_BRANCH_PUSH_FAILED
 STB0_STATUS=1

@@ -1,1 +1,697 @@
-<!doctype html><meta charset="utf-8"><title>STB-0 build</title><style>body{font-family:system-ui;max-width:960px;margin:40px auto;padding:0 20px}pre{white-space:pre-wrap;background:#f5f5f5;padding:16px}</style><h1>STB-0 build status: 1</h1><p><a href="/stb0/results/report.html">Report</a> · <a href="/stb0/results/summary.json">Summary</a> · <a href="/stb0/results/build.log">Build log</a> · <a href="/STB0_successful_translation_pilot.zip">ZIP</a></p><pre>Build always publishes diagnostics. A nonzero status above means the experiment or its regression tests failed.</pre>
+{
+  "schema": "stb0-summary-v1",
+  "seed": 20260717,
+  "data_sources": [
+    {
+      "lp": "en-de",
+      "annotation_rows": 79020,
+      "rating_units": 43843,
+      "malformed_rows": 0,
+      "raters": [
+        "rater1",
+        "rater2",
+        "rater3",
+        "rater4",
+        "rater5",
+        "rater6"
+      ],
+      "systems": 10,
+      "documents": 26,
+      "segments": 1418,
+      "categories": {
+        "Style/Awkward": 10280,
+        "Accuracy/Mistranslation": 21185,
+        "No-error": 14038,
+        "Fluency/Register": 430,
+        "Terminology/Inappropriate for context": 5553,
+        "Fluency/Grammar": 6696,
+        "Fluency/Spelling": 1612,
+        "Accuracy/Omission": 2452,
+        "Accuracy/Addition": 1424,
+        "Terminology/Inconsistent use of terminology": 236,
+        "Fluency/Punctuation": 12302,
+        "Other": 338,
+        "Non-translation!": 105,
+        "Accuracy/Untranslated text": 1967,
+        "Locale convention/Currency format": 205,
+        "Fluency/Inconsistency": 90,
+        "Fluency/Character encoding": 63,
+        "Locale convention/Address format": 17,
+        "Locale convention/Date format": 14,
+        "Locale convention/Time format": 13
+      },
+      "severities": {
+        "Minor": 55629,
+        "Major": 7608,
+        "no-error": 14038,
+        "Neutral": 1745
+      }
+    },
+    {
+      "lp": "zh-en",
+      "annotation_rows": 124292,
+      "rating_units": 66804,
+      "malformed_rows": 0,
+      "raters": [
+        "rater1",
+        "rater2",
+        "rater3",
+        "rater4",
+        "rater5",
+        "rater6"
+      ],
+      "systems": 10,
+      "documents": 27,
+      "segments": 2000,
+      "categories": {
+        "Fluency/Grammar": 14863,
+        "Accuracy/Mistranslation": 45361,
+        "Accuracy/Addition": 1013,
+        "No-error": 15946,
+        "Accuracy/Omission": 9274,
+        "Locale convention/Name format": 6855,
+        "Fluency/Character encoding": 36,
+        "Fluency/Punctuation": 12556,
+        "Terminology/Inappropriate for context": 5473,
+        "Terminology/Inconsistent use of terminology": 275,
+        "Fluency/Inconsistency": 883,
+        "Style/Awkward": 6190,
+        "Fluency/Spelling": 3982,
+        "Locale convention/Date format": 115,
+        "Fluency/Register": 402,
+        "Other": 150,
+        "Locale convention/Address format": 360,
+        "Locale convention/Time format": 37,
+        "Non-translation!": 50,
+        "Accuracy/Untranslated text": 14,
+        "Locale convention/Currency format": 455,
+        "Locale convention/Telephone format": 2
+      },
+      "severities": {
+        "Minor": 57209,
+        "Major": 50074,
+        "no-error": 15946,
+        "Neutral": 1063
+      }
+    }
+  ],
+  "descriptive": {
+    "n_cross_rater_examples": 110640,
+    "n_unique_translation_units": 34171,
+    "n_documents": 53,
+    "language_pairs": [
+      "en-de",
+      "zh-en"
+    ],
+    "semantic_boundary_spearman": 0.21099947223916082,
+    "semantic_clear_with_boundary_debt_share": 0.19433297180043385,
+    "quadrants": {
+      "semantic0_boundary0": {
+        "n": 16565,
+        "share": 0.14971981200289225,
+        "heldout_strict_success": 0.6437669785692726,
+        "heldout_usable_success": 0.8475098098400241,
+        "heldout_mean_penalty": 0.8452037428312708
+      },
+      "semantic0_boundary_positive": {
+        "n": 21501,
+        "share": 0.19433297180043385,
+        "heldout_strict_success": 0.34226315055113715,
+        "heldout_usable_success": 0.6386679689316775,
+        "heldout_mean_penalty": 1.8006604343984
+      },
+      "semantic_positive_boundary0": {
+        "n": 18798,
+        "share": 0.16990238611713665,
+        "heldout_strict_success": 0.2806681561868284,
+        "heldout_usable_success": 0.5127141185232471,
+        "heldout_mean_penalty": 3.265150547930631
+      },
+      "both_positive": {
+        "n": 53776,
+        "share": 0.48604483007953725,
+        "heldout_strict_success": 0.1254462957453139,
+        "heldout_usable_success": 0.3200870276703362,
+        "heldout_mean_penalty": 4.995955444808093
+      }
+    },
+    "strict_success_rate": 0.27155639913232105,
+    "usable_success_rate": 0.49369125090383226,
+    "major_failure_rate": 0.3470173535791757
+  },
+  "rules": {
+    "semantic_clear_1d": {
+      "tp": 18023,
+      "fp": 20043,
+      "tn": 60552,
+      "fn": 12022,
+      "precision": 0.47346713602690066,
+      "recall": 0.599866866367116,
+      "false_success_rate": 0.5265328639730994,
+      "coverage": 0.3440527838033261
+    },
+    "typed_clear_2d": {
+      "tp": 10664,
+      "fp": 5901,
+      "tn": 74694,
+      "fn": 19381,
+      "precision": 0.6437669785692726,
+      "recall": 0.35493426526876354,
+      "false_success_rate": 0.35623302143072744,
+      "coverage": 0.14971981200289225
+    },
+    "collapsed_clear_1d": {
+      "tp": 10664,
+      "fp": 5901,
+      "tn": 74694,
+      "fn": 19381,
+      "precision": 0.6437669785692726,
+      "recall": 0.35493426526876354,
+      "false_success_rate": 0.35623302143072744,
+      "coverage": 0.14971981200289225
+    },
+    "mcnemar_semantic_vs_typed": {
+      "semantic_wrong_typed_right": 14142,
+      "semantic_right_typed_wrong": 7359,
+      "p": 0.0
+    }
+  },
+  "bootstrap": {
+    "semantic_minus_typed_false_success": 0.17025450303160608,
+    "median": 0.17012488771126452,
+    "ci95": [
+      0.15491421719963824,
+      0.18488233506157253
+    ],
+    "n_boot": 500
+  },
+  "per_language": {
+    "en-de": {
+      "descriptive": {
+        "n_cross_rater_examples": 43841,
+        "n_unique_translation_units": 14179,
+        "n_documents": 26,
+        "language_pairs": [
+          "en-de"
+        ],
+        "semantic_boundary_spearman": 0.20020393208152748,
+        "semantic_clear_with_boundary_debt_share": 0.2288725165940558,
+        "quadrants": {
+          "semantic0_boundary0": {
+            "n": 8306,
+            "share": 0.18945735726831048,
+            "heldout_strict_success": 0.6878160366000482,
+            "heldout_usable_success": 0.9106669877197207,
+            "heldout_mean_penalty": 0.4829641223212136
+          },
+          "semantic0_boundary_positive": {
+            "n": 10034,
+            "share": 0.2288725165940558,
+            "heldout_strict_success": 0.34741877616105243,
+            "heldout_usable_success": 0.6957345026908511,
+            "heldout_mean_penalty": 1.2050926848714372
+          },
+          "semantic_positive_boundary0": {
+            "n": 6831,
+            "share": 0.15581305170958692,
+            "heldout_strict_success": 0.3270385009515444,
+            "heldout_usable_success": 0.639877031181379,
+            "heldout_mean_penalty": 2.013365539452496
+          },
+          "both_positive": {
+            "n": 18670,
+            "share": 0.4258570744280468,
+            "heldout_strict_success": 0.1416711301553294,
+            "heldout_usable_success": 0.41269416175682916,
+            "heldout_mean_penalty": 2.940862346009641
+          }
+        },
+        "strict_success_rate": 0.3211149380716681,
+        "usable_success_rate": 0.6072169886635798,
+        "major_failure_rate": 0.15063525010834608
+      },
+      "rules": {
+        "semantic_clear_1d": {
+          "tp": 9199,
+          "fp": 9141,
+          "tn": 20622,
+          "fn": 4879,
+          "precision": 0.5015812431842966,
+          "recall": 0.6534308850689018,
+          "false_success_rate": 0.49841875681570336,
+          "coverage": 0.41832987386236625
+        },
+        "typed_clear_2d": {
+          "tp": 5713,
+          "fp": 2593,
+          "tn": 27170,
+          "fn": 8365,
+          "precision": 0.6878160366000482,
+          "recall": 0.40581048444381307,
+          "false_success_rate": 0.31218396339995186,
+          "coverage": 0.18945735726831048
+        },
+        "collapsed_clear_1d": {
+          "tp": 5713,
+          "fp": 2593,
+          "tn": 27170,
+          "fn": 8365,
+          "precision": 0.6878160366000482,
+          "recall": 0.40581048444381307,
+          "false_success_rate": 0.31218396339995186,
+          "coverage": 0.18945735726831048
+        },
+        "mcnemar_semantic_vs_typed": {
+          "semantic_wrong_typed_right": 6548,
+          "semantic_right_typed_wrong": 3486,
+          "p": 2.3796089180841184e-208
+        }
+      },
+      "model_metrics": [
+        {
+          "outcome": "strict_success",
+          "model": "semantic_only_1d",
+          "roc_auc": 0.706802651063208,
+          "average_precision": 0.46097616125922247,
+          "brier": 0.19252373393273525,
+          "spearman": 0.3350369618010702,
+          "mae": null
+        },
+        {
+          "outcome": "strict_success",
+          "model": "collapsed_total_1d",
+          "roc_auc": 0.7702528707193611,
+          "average_precision": 0.5782318059353415,
+          "brier": 0.17974812348339614,
+          "spearman": 0.43721683733014716,
+          "mae": null
+        },
+        {
+          "outcome": "strict_success",
+          "model": "typed_2d",
+          "roc_auc": 0.7689015073510816,
+          "average_precision": 0.5784691248503239,
+          "brier": 0.17960955036560816,
+          "spearman": 0.43499375325806805,
+          "mae": null
+        },
+        {
+          "outcome": "strict_success",
+          "model": "typed_2d_interaction",
+          "roc_auc": 0.7680646396679145,
+          "average_precision": 0.5786002515259335,
+          "brier": 0.1786961143769828,
+          "spearman": 0.43363997796400267,
+          "mae": null
+        },
+        {
+          "outcome": "usable_success",
+          "model": "semantic_only_1d",
+          "roc_auc": 0.720417195501303,
+          "average_precision": 0.7513175121838109,
+          "brier": 0.20383565419820526,
+          "spearman": 0.37350981267780203,
+          "mae": null
+        },
+        {
+          "outcome": "usable_success",
+          "model": "collapsed_total_1d",
+          "roc_auc": 0.7723516679107396,
+          "average_precision": 0.823999301543887,
+          "brier": 0.19336814449100534,
+          "spearman": 0.4608679724521843,
+          "mae": null
+        },
+        {
+          "outcome": "usable_success",
+          "model": "typed_2d",
+          "roc_auc": 0.7710602217708977,
+          "average_precision": 0.8240743169733977,
+          "brier": 0.1932963992486078,
+          "spearman": 0.4586437651266422,
+          "mae": null
+        },
+        {
+          "outcome": "usable_success",
+          "model": "typed_2d_interaction",
+          "roc_auc": 0.7693935719012888,
+          "average_precision": 0.8234844789805011,
+          "brier": 0.19263714395628379,
+          "spearman": 0.45582373213659605,
+          "mae": null
+        },
+        {
+          "outcome": "heldout_total_penalty",
+          "model": "semantic_only_1d",
+          "roc_auc": null,
+          "average_precision": null,
+          "brier": null,
+          "spearman": 0.441060344229161,
+          "mae": 1.6441269029993144
+        },
+        {
+          "outcome": "heldout_total_penalty",
+          "model": "collapsed_total_1d",
+          "roc_auc": null,
+          "average_precision": null,
+          "brier": null,
+          "spearman": 0.5399038854176818,
+          "mae": 1.594940572465319
+        },
+        {
+          "outcome": "heldout_total_penalty",
+          "model": "typed_2d",
+          "roc_auc": null,
+          "average_precision": null,
+          "brier": null,
+          "spearman": 0.5397905012445855,
+          "mae": 1.5941076877265024
+        },
+        {
+          "outcome": "heldout_total_penalty",
+          "model": "typed_2d_interaction",
+          "roc_auc": null,
+          "average_precision": null,
+          "brier": null,
+          "spearman": 0.5402424981861537,
+          "mae": 1.59107979891824
+        }
+      ]
+    },
+    "zh-en": {
+      "descriptive": {
+        "n_cross_rater_examples": 66799,
+        "n_unique_translation_units": 19992,
+        "n_documents": 27,
+        "language_pairs": [
+          "zh-en"
+        ],
+        "semantic_boundary_spearman": 0.18775280790181498,
+        "semantic_clear_with_boundary_debt_share": 0.17166424647075554,
+        "quadrants": {
+          "semantic0_boundary0": {
+            "n": 8259,
+            "share": 0.12363957544274615,
+            "heldout_strict_success": 0.5994672478508294,
+            "heldout_usable_success": 0.7839932195181014,
+            "heldout_mean_penalty": 1.209504782661339
+          },
+          "semantic0_boundary_positive": {
+            "n": 11467,
+            "share": 0.17166424647075554,
+            "heldout_strict_success": 0.33775180954042033,
+            "heldout_usable_success": 0.5887328856719282,
+            "heldout_mean_penalty": 2.3218016918112845
+          },
+          "semantic_positive_boundary0": {
+            "n": 11967,
+            "share": 0.17914938846389916,
+            "heldout_strict_success": 0.2541990473802958,
+            "heldout_usable_success": 0.4401270159605582,
+            "heldout_mean_penalty": 3.979694158937077
+          },
+          "both_positive": {
+            "n": 35106,
+            "share": 0.5255467896225992,
+            "heldout_strict_success": 0.11681763801059648,
+            "heldout_usable_success": 0.27083689397823735,
+            "heldout_mean_penalty": 6.088890787899506
+          }
+        },
+        "strict_success_rate": 0.23903052440904804,
+        "usable_success_rate": 0.4191829219000284,
+        "major_failure_rate": 0.4759053279240707
+      },
+      "rules": {
+        "semantic_clear_1d": {
+          "tp": 8824,
+          "fp": 10902,
+          "tn": 39930,
+          "fn": 7143,
+          "precision": 0.44732839906722094,
+          "recall": 0.5526398196279827,
+          "false_success_rate": 0.5526716009327791,
+          "coverage": 0.2953038219135017
+        },
+        "typed_clear_2d": {
+          "tp": 4951,
+          "fp": 3308,
+          "tn": 47524,
+          "fn": 11016,
+          "precision": 0.5994672478508294,
+          "recall": 0.3100770338823824,
+          "false_success_rate": 0.4005327521491706,
+          "coverage": 0.12363957544274615
+        },
+        "collapsed_clear_1d": {
+          "tp": 4951,
+          "fp": 3308,
+          "tn": 47524,
+          "fn": 11016,
+          "precision": 0.5994672478508294,
+          "recall": 0.3100770338823824,
+          "false_success_rate": 0.4005327521491706,
+          "coverage": 0.12363957544274615
+        },
+        "mcnemar_semantic_vs_typed": {
+          "semantic_wrong_typed_right": 7594,
+          "semantic_right_typed_wrong": 3873,
+          "p": 3.201589387226281e-269
+        }
+      },
+      "model_metrics": [
+        {
+          "outcome": "strict_success",
+          "model": "semantic_only_1d",
+          "roc_auc": 0.7329776133826064,
+          "average_precision": 0.4008968750437073,
+          "brier": 0.15988884969939995,
+          "spearman": 0.3444049628855455,
+          "mae": null
+        },
+        {
+          "outcome": "strict_success",
+          "model": "collapsed_total_1d",
+          "roc_auc": 0.772044579832472,
+          "average_precision": 0.4736553704103378,
+          "brier": 0.15224679323132878,
+          "spearman": 0.40194567285786403,
+          "mae": null
+        },
+        {
+          "outcome": "strict_success",
+          "model": "typed_2d",
+          "roc_auc": 0.7717557743574797,
+          "average_precision": 0.47368298824271343,
+          "brier": 0.15221447074456826,
+          "spearman": 0.4015126855713962,
+          "mae": null
+        },
+        {
+          "outcome": "strict_success",
+          "model": "typed_2d_interaction",
+          "roc_auc": 0.7708284475136878,
+          "average_precision": 0.47329140560301686,
+          "brier": 0.15198410415097863,
+          "spearman": 0.4001425821888891,
+          "mae": null
+        },
+        {
+          "outcome": "usable_success",
+          "model": "semantic_only_1d",
+          "roc_auc": 0.7408400809380268,
+          "average_precision": 0.6181073463998981,
+          "brier": 0.20158753745047459,
+          "spearman": 0.41190318699926265,
+          "mae": null
+        },
+        {
+          "outcome": "usable_success",
+          "model": "collapsed_total_1d",
+          "roc_auc": 0.7803558893427913,
+          "average_precision": 0.6825483942045035,
+          "brier": 0.18873681724002314,
+          "spearman": 0.47923457560157073,
+          "mae": null
+        },
+        {
+          "outcome": "usable_success",
+          "model": "typed_2d",
+          "roc_auc": 0.7803315894366729,
+          "average_precision": 0.6834202585064192,
+          "brier": 0.18870649210988452,
+          "spearman": 0.4791855446181774,
+          "mae": null
+        },
+        {
+          "outcome": "usable_success",
+          "model": "typed_2d_interaction",
+          "roc_auc": 0.7792627856944399,
+          "average_precision": 0.6826588859974071,
+          "brier": 0.18822265324119392,
+          "spearman": 0.4773585821063224,
+          "mae": null
+        },
+        {
+          "outcome": "heldout_total_penalty",
+          "model": "semantic_only_1d",
+          "roc_auc": null,
+          "average_precision": null,
+          "brier": null,
+          "spearman": 0.4972000509223925,
+          "mae": 3.279670372675339
+        },
+        {
+          "outcome": "heldout_total_penalty",
+          "model": "collapsed_total_1d",
+          "roc_auc": null,
+          "average_precision": null,
+          "brier": null,
+          "spearman": 0.5692758598612561,
+          "mae": 3.088490013394262
+        },
+        {
+          "outcome": "heldout_total_penalty",
+          "model": "typed_2d",
+          "roc_auc": null,
+          "average_precision": null,
+          "brier": null,
+          "spearman": 0.5688944338021013,
+          "mae": 3.0891340827049154
+        },
+        {
+          "outcome": "heldout_total_penalty",
+          "model": "typed_2d_interaction",
+          "roc_auc": null,
+          "average_precision": null,
+          "brier": null,
+          "spearman": 0.5685134430719403,
+          "mae": 3.083185520133516
+        }
+      ]
+    }
+  },
+  "model_metrics": [
+    {
+      "outcome": "strict_success",
+      "model": "semantic_only_1d",
+      "roc_auc": 0.7298941159573996,
+      "average_precision": 0.43761117901968133,
+      "brier": 0.1739427080058496,
+      "spearman": 0.3545127669483771,
+      "mae": null
+    },
+    {
+      "outcome": "strict_success",
+      "model": "collapsed_total_1d",
+      "roc_auc": 0.7735804556704864,
+      "average_precision": 0.5343750411355667,
+      "brier": 0.16521916586958962,
+      "spearman": 0.4215505653969454,
+      "mae": null
+    },
+    {
+      "outcome": "strict_success",
+      "model": "typed_2d",
+      "roc_auc": 0.7725157000525021,
+      "average_precision": 0.533908836478023,
+      "brier": 0.1650349532587456,
+      "spearman": 0.4198971611020523,
+      "mae": null
+    },
+    {
+      "outcome": "strict_success",
+      "model": "typed_2d_interaction",
+      "roc_auc": 0.771265057250033,
+      "average_precision": 0.5331874056596456,
+      "brier": 0.16446786156098714,
+      "spearman": 0.4179701478540469,
+      "mae": null
+    },
+    {
+      "outcome": "usable_success",
+      "model": "semantic_only_1d",
+      "roc_auc": 0.7457650837812233,
+      "average_precision": 0.6871798769129058,
+      "brier": 0.20386643793776896,
+      "spearman": 0.42602163100127943,
+      "mae": null
+    },
+    {
+      "outcome": "usable_success",
+      "model": "collapsed_total_1d",
+      "roc_auc": 0.7870857465994493,
+      "average_precision": 0.7552412788254258,
+      "brier": 0.19146724959812844,
+      "spearman": 0.497260180473873,
+      "mae": null
+    },
+    {
+      "outcome": "usable_success",
+      "model": "typed_2d",
+      "roc_auc": 0.7866494813629915,
+      "average_precision": 0.7556031475223213,
+      "brier": 0.1914083493471832,
+      "spearman": 0.4964894398421936,
+      "mae": null
+    },
+    {
+      "outcome": "usable_success",
+      "model": "typed_2d_interaction",
+      "roc_auc": 0.785497529929909,
+      "average_precision": 0.7552391060272408,
+      "brier": 0.19070065046228055,
+      "spearman": 0.49449420952071416,
+      "mae": null
+    },
+    {
+      "outcome": "heldout_total_penalty",
+      "model": "semantic_only_1d",
+      "roc_auc": null,
+      "average_precision": null,
+      "brier": null,
+      "spearman": 0.5096984504958496,
+      "mae": 2.6820675183027514
+    },
+    {
+      "outcome": "heldout_total_penalty",
+      "model": "collapsed_total_1d",
+      "roc_auc": null,
+      "average_precision": null,
+      "brier": null,
+      "spearman": 0.5811120576140072,
+      "mae": 2.5242637117816393
+    },
+    {
+      "outcome": "heldout_total_penalty",
+      "model": "typed_2d",
+      "roc_auc": null,
+      "average_precision": null,
+      "brier": null,
+      "spearman": 0.5811718553511734,
+      "mae": 2.5244256109388266
+    },
+    {
+      "outcome": "heldout_total_penalty",
+      "model": "typed_2d_interaction",
+      "roc_auc": null,
+      "average_precision": null,
+      "brier": null,
+      "spearman": 0.5810319781084071,
+      "mae": 2.518798138326568
+    }
+  ],
+  "claims": {
+    "two_dimensions_observed": true,
+    "typed_rule_reduces_false_success": true,
+    "typed_model_beats_semantic_auc": true,
+    "typed_model_beats_collapsed_auc": false,
+    "automatic_boundary_estimation_validated": false,
+    "full_regime_convergence_validated": false
+  },
+  "limitations": [
+    "Coordinates are human MQM annotations, not automatic predictions.",
+    "MQM decomposition is construct validity, not the paper's full boundary vector.",
+    "Raters share source, target, guidelines, and context."
+  ]
+}
